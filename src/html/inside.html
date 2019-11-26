@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Inside page</title>
+        ${require('../modules/Global/html/head.html')}
+    </head>
+    <body>
+        <div class="page-wrapper">
+            <!--noindex-->
+            ${require('../modules/Header/html/index.html')}
+            <!--endnoindex-->
+
+            ${require('../modules/Banner/html/index.html')}
+            ${require('../modules/Breadcrumbs/html/index.html')}
+
+            <main class="main row" role="main" id="main">
+                <div class="side-nav first-lg col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                    ${require('../modules/Sidenav/html/index.html')}
+                </div>
+                <div class="content-viewport first-md first-xs col-xs-12 col-sm-12 col-md-12 col-lg-9">
+                    ${require('../modules/Content/html/index.html')}
+                </div>
+            </main><!-- /.main -->
+
+            <!--noindex-->
+            ${require('../modules/Footer/html/index.html')}
+            <!--endnoindex-->   
+        </div><!-- /.page-wrapper -->
+        <div class="footer-scripts">
+            ${require('../modules/Global/html/scripts.html')}
+        </div>
+    </body>
+</html>

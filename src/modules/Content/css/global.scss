@@ -1,0 +1,467 @@
+/*
+--------------------
+CONTENTS:
+
+1.TYPOGRAPHY
+2. TABLES
+3. LISTS
+4. IMAGES
+5. ARTICLES
+6. DOWNLOADS AND LINKS
+--------------------
+*/
+
+
+/*
+--------------------
+1. TYPOGRAPHY
+--------------------
+*/
+
+.content-viewport {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        font-size: pxToRem(40); // pxToRem
+        font-weight: bold;
+        line-height: 1.25;
+        letter-spacing: -0.8px; // only for headings
+        margin-bottom: pxToRem(32);
+        color: $dark-grey;
+    }
+
+    h3 {
+        font-size: pxToRem(26);
+        line-height: 1.38;
+        font-weight: normal;
+        letter-spacing: -0.52px;
+        margin-bottom: pxToRem(32);
+        color: $slate-grey;
+    }
+
+    h4 {
+        font-size: pxToRem(22);
+        font-weight: bold;
+        line-height: 1.45;
+        letter-spacing: -0.44px;
+        margin-bottom: pxToRem(32);
+        color: $cerulean;
+    }
+
+    .section-heading {
+        margin: pxToRem(16) 0;
+        color: $dark-grey;
+    }
+
+    p {
+        font-size: pxToRem(18);
+        font-weight: normal;
+        line-height: 1.63;
+        letter-spacing: -0.32px;
+        margin-bottom: pxToRem(16);
+        color: $dark-grey;
+    }
+
+    h5 {
+        font-size: pxToRem(16);
+        font-weight: normal;
+        line-height: 1.5;
+        letter-spacing: -0.32px;
+        margin-bottom: pxToRem(16);
+        color: $black-five;
+    }
+
+    h6 {
+        font-size: pxToRem(16);
+        line-height: 1.5;
+        letter-spacing: -0.32px;
+        margin-bottom: pxToRem(16);
+        font-weight: normal;
+        color: $slate-grey;
+
+        span {
+            font-weight: bold;
+            color: $deep-sea-blue;
+        }
+    }
+}
+
+/*
+--------------------
+2. TABLES
+--------------------
+*/
+
+.content-viewport {
+    table {
+        border-collapse: collapse;
+        max-width: 100%;
+        overflow-x: auto;
+        display: block;
+        width: fit-content;
+        white-space: nowrap;
+
+        thead {
+            background-color: $deep-sea-blue;
+            font-size: pxToRem(18);
+            font-weight: bold;
+            line-height: 1.36;
+            letter-spacing: -0.36px;
+            color: $white;
+        }
+
+        tbody {
+            background-color: $off-white;
+        }
+
+        th {
+            padding-left: 1.5rem;
+            text-align: left;
+        }
+
+        tr {
+            height: pxToRem(50);
+        }
+
+        tr:nth-child(even) {
+            background-color: $white;
+        }
+
+        td {
+            width: 33.333%;
+            border-right: 1px solid $light-peach;
+            padding: 1.25rem 1.5rem;
+            vertical-align: top;
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+
+        td:first-child {
+            font-weight: bold;
+        }
+    }
+}
+
+@media screen and (min-width: $tablet) {
+    .content-viewport {
+        table {
+            white-space: initial;
+        }
+    }
+}
+
+/*
+--------------------
+3. LISTS
+--------------------
+*/
+
+.content-viewport {
+
+    ul,
+    ol {
+        margin: 0 0 2em 0;
+        padding: 0 0;
+        list-style: none;
+        color: $dark-grey;
+    }
+
+    li {
+        font-size: pxToRem(18);
+        color: #000;
+        line-height: 1.5em;
+        margin: 0 0 0.5em 0.5em;
+        color: #222125;
+        position: relative;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        ul {
+            margin-top: 0.5em;
+        }
+
+    }
+
+    ul {
+        list-style-type: none;
+        margin-left: pxToRem(20);
+
+        li:before {
+            content: '';
+            position: absolute;
+            top: 0.5rem;
+            left: pxToRem(-20);
+            height: 0.5rem;
+            width: 0.5rem;
+            background-color: #c9428b;
+        }
+
+        li>ul {
+            margin-top: 1em;
+            margin-left: 1em;
+        }
+
+        li>ul>li {
+            font-size: pxToRem(16);
+
+            &:before {
+                background: none;
+                content: '-';
+                margin: -8px 0.5em;
+            }
+        }
+    }
+
+    ol {
+        list-style-type: none;
+        list-style-position: outside;
+        counter-reset: level;
+
+        li:before {
+            color: #222125;
+            content: counter(level) ". ";
+            counter-increment: level;
+            padding-right: 0.5em;
+            font-weight: bold;
+        }
+
+
+        >li>ol {
+            margin-top: 1em;
+            margin-left: 2em;
+            list-style-type: lower-roman;
+
+            >li {
+                color: #222125;
+                font-size: pxToRem(16);
+
+                &:before {
+                    content: none;
+                    margin-left: 5px;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+/*
+--------------------
+4. IMAGES
+--------------------
+*/
+.content-viewport {
+    .full-width-img {
+        position: relative;
+        margin: 0 0 20px 0;
+
+        figcaption {
+            bottom: pxToRem(6);
+        }
+    }
+
+    figcaption {
+        background-color: $dark-grey;
+        @include sq-opacity(90);
+        font-size: pxToRem(14);
+        line-height: 1.64;
+        letter-spacing: -0.28px;
+        color: $white;
+        position: absolute;
+        bottom: pxToRem(5);
+        width: 100%;
+        padding: 0.75rem;
+    }
+
+    .left-img,
+    .right-img {
+        margin-bottom: pxToRem(40);
+        display: flex;
+        flex-direction: column;
+
+        figure {
+            margin: 0;
+        }
+    }
+
+    .left-img__text,
+    .right-img__text {
+        flex: 1 1 auto;
+        margin: 0;
+    }
+
+    figure {
+        width: 100%;
+        height: auto;
+        position: relative;
+
+        img {
+            height: auto;
+        }
+    }
+}
+
+@media screen and (min-width: $tablet) {
+    .content-viewport {
+        .full-width-img {
+            margin: 0 0 40px 0;
+        }
+
+        .left-img,
+        .right-img {
+            flex-direction: row;
+            img {
+                object-fit: cover;
+                height: 100%;
+            }
+            figure{
+                flex: 0 0 pxToRem(310);
+                height: pxToRem(310);
+            }
+        }
+
+        .left-img figure {
+            margin: 0 pxToRem(30) 0 0;
+        }
+
+        .right-img figure {
+            margin: 0 0 0 pxToRem(30);
+        }
+
+        figcaption {
+            bottom: 0;
+        }
+    }
+}
+
+/*------------------
+5. ARTICLES
+--------------------
+*/
+
+.content-viewport {
+    .article {
+        background-color: $off-white-two;
+        display: flex;
+        padding: 1rem;
+        margin-bottom: pxToRem(20);
+        flex-direction: column;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    .article__image-container {
+        width: 100%;
+        flex: none;
+    }
+
+    .article__text {
+        flex: 1 1 auto;
+    }
+
+    .article__text--no-image {
+        width: 100%;
+    }
+
+    .article__title {
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 1.45;
+        letter-spacing: -0.44px;
+        color: $dark-grey;
+        margin: 0.5rem 0;
+    }
+
+    .article__date {
+        font-size: 15px;
+        line-height: 1.67;
+        letter-spacing: -0.3px;
+        color: $slate-grey;
+        margin-bottom: 0.5rem;
+    }
+
+    @media screen and (min-width: $tablet) {
+        .article {
+            flex-direction: row;
+            margin-bottom: pxToRem(30);
+        }
+
+        .article__image-container {
+            margin-right: 20px;
+            flex: 0 0 300px;
+        }
+    }
+}
+
+/*
+--------------------
+6. DOWNLOADS AND LINKS
+--------------------
+*/
+
+.content-viewport {
+    .link-bar {
+        margin-bottom: 1rem;
+        display: flex;
+
+        &__icon {
+            background-color: $deep-sea-blue;
+            color: $white;
+            height: pxToRem(45);
+            width: pxToRem(45);
+            position: relative;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            .icon {
+                position: absolute;
+                top: pxToRem(15);
+                left: pxToRem(15);
+            }
+        }
+
+
+        &__text {
+            background-color: $cerulean;
+            flex-grow: 1;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+
+            p {
+                padding: 0.5rem 0 0 1rem;
+                color: $white;
+                margin: 0;
+            }
+
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: $cerulean;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

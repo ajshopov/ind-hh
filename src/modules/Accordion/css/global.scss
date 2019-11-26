@@ -1,0 +1,92 @@
+/*
+ * Mobile layout
+ */
+
+.accordion__wrapper {
+
+    .accordion__card {
+        width: 100%;
+        color: $black;
+        overflow: hidden;
+        margin-bottom: pxToRem(2);
+
+        &-label {
+            display: block;
+            padding: pxToRem(16) pxToRem(20);
+            background: rgba(201, 66, 139, 0.3);
+            font-size: pxToRem(18);
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+
+            &::after {
+                color: $dark-pink;
+                content: "\25B4";
+                transition: all .3s;
+                position: absolute;
+                right: pxToRem(24);
+                font-size: inherit;
+            }
+        }
+
+        input:focus + label,
+        input:hover + label {
+            background: lighten($dark-pink, 10%);
+        }
+
+        &-content {
+            max-height: 0;
+            padding: 0 1rem;
+            background: white;
+            transition: all .3s;
+        }
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+    }
+
+    input:checked {
+        +.accordion__card-label {
+            color: $white;
+            background: $dark-pink;
+
+            &::after {
+                transform: rotate(180deg) translateY(-3px);
+                color: $white;
+            }
+        }
+
+        ~.accordion__card-content {
+            max-height: 100vh;
+            padding: 1rem;
+        }
+    }
+}
+
+
+/*
+ * Tablet layout
+ */
+
+@media screen and (min-width: $tablet) {
+    .accordion__wrapper {
+
+    }
+}
+
+
+/*
+ * Desktop layout
+ */
+
+@media screen and (min-width: $desktop) {
+    .accordion__wrapper {
+        .accordion__card-label {
+            padding-left: pxToRem(24);
+            padding-right: pxToRem(24);
+        }
+    }
+}

@@ -1,0 +1,145 @@
+/*
+ * Mobile layout
+ */
+
+.form__wrapper {
+    form {
+        margin-bottom: pxToRem(36);
+    }
+
+    .sq-form-question {
+        margin-bottom: pxToRem(24);
+
+        &-title {
+            color: $dark-grey;
+            font-size: pxToRem(18);
+            font-weight: bold;
+            display: block;
+        }
+    }
+
+    input,
+    select {
+        background-color: $off-white-two;
+        color: $dark-grey;
+        width: 100%;
+        @include sq-border-radius(5px);
+        border: none;
+        font-size: pxToRem(16);
+        padding: pxToRem(14) pxToRem(20);
+
+        &:focus,
+        &:active {
+            outline-color: $beige;
+        }
+    }
+
+    select {
+        appearance: none;
+        background: url('~src/files/icon-arrow-down-black.png') $off-white-two;
+        background-repeat: no-repeat;
+        background-size: pxToRem(20);
+        background-position: right pxToRem(20) top 50%;
+    }
+
+    .sq-form-question-error {
+        position: relative;
+
+        input {
+            border: 2px solid $deep-red;
+        }
+
+        label::before {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        &::before {
+            position: absolute;
+            top: 0.5rem;
+            right: 0;
+            color: $deep-red;
+            font-size: pxToRem(12);
+        }
+
+        >* {
+            font-family: 'Hind', sans-serif;
+            line-height: 1.4;
+        }
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+
+        label {
+            padding-left: pxToRem(16);
+        }
+
+        >input {
+            width: auto;
+        }
+    }
+
+    .sq-form-question-answer {
+
+        input[type=radio],
+        input[type=checkbox] {
+            width: auto;
+        }
+
+        ul {
+            margin: 0;
+        }
+
+        li {
+            font-size: pxToRem(16);
+            margin: pxToRem(8) 0 0 0;
+
+            &::before {
+                content: none;
+            }
+        }
+    }
+
+    input[type=submit] {
+        background-color: $cerulean;
+        border: none;
+        padding: pxToRem(12) pxToRem(36);
+        font-size: pxToRem(18);
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $white;
+        width: auto;
+        min-width: pxToRem(200);
+        
+        &:hover, &:focus {
+            background-color: $deep-sea-blue;
+            cursor: pointer;
+        }
+    }
+}
+
+
+/*
+ * Tablet layout
+ */
+
+@media screen and (min-width: $tablet){
+    .form__wrapper {
+
+    }
+}
+
+
+/*
+ * Desktop layout
+ */
+
+@media screen and (min-width: $desktop){
+    .form__wrapper {
+        
+    }
+}

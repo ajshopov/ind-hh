@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Home page</title>
+        ${require('../modules/Global/html/head.html')}
+    </head>
+    <body>
+        <div class="page-wrapper">
+            <!--noindex-->
+            ${require('../modules/Header/html/index.html')}
+            <!--endnoindex-->
+            ${require('../modules/HomeBanner/html/index.html')}
+            <main role="main" id="main">
+                <section class="has-background">
+                    ${require('../modules/KeyPathways/html/index.html')}
+                </section>
+    
+                <section>
+                    <div>how we are helping</div>
+                </section>
+    
+                <section class="has-background">
+                    <div>what's happening</div>
+                </section>
+            </main><!-- /.main -->
+
+            <!--noindex-->
+            ${require('../modules/Footer/html/index.html')}
+            <!--endnoindex-->   
+        </div><!-- /.page-wrapper -->
+        <div class="footer-scripts">
+            ${require('../modules/Global/html/scripts.html')}
+        </div>
+    </body>
+</html>

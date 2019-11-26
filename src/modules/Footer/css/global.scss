@@ -1,0 +1,145 @@
+/*
+ * Mobile layout
+ */
+
+.footer {
+    .desktop-and-tablet {
+        display: none;
+    }
+
+    padding: 0 pxToRem(15);
+    background-color: $dark-grey;
+    color: $white;
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    a {
+        color: $white;
+        text-decoration: none;
+        &:focus, &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__links {
+        display: flex;
+        justify-content: center;
+        max-width: pxToRem(1060);
+        margin: 0 auto;
+        padding: pxToRem(20) 0;
+
+        ul {
+            line-height: 1.5;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            font-size: pxToRem(18);
+            text-transform: uppercase;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        li {
+            text-transform: none;
+            text-align: center;
+            font-size: pxToRem(16);
+            font-weight: normal;
+            margin-bottom: pxToRem(8);
+        }
+
+        .icon-facebook {
+            margin-right: pxToRem(14);
+        }
+
+        .icon-twitter {
+            margin-right: pxToRem(3);
+        }
+
+        .icon-logo {
+            margin-right: pxToRem(7);
+        }
+    }
+
+    &__site-info {
+        max-width: pxToRem(1060);
+        margin: 0 auto;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        flex-direction: column-reverse;
+        text-align: center;
+        align-items: center;
+
+        li {
+            display: inline;
+            font-size: pxToRem(11);
+            margin-right: pxToRem(16);
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .subscribe {
+        margin-top: pxToRem(14);
+        font-weight: bold;
+        background-color: $cerulean;
+        padding-left: pxToRem(40);
+        padding-right: pxToRem(40);
+    }
+}
+
+
+/*
+ * Tablet layout
+ */
+
+@media screen and (min-width: $tablet) {
+    .footer {
+
+        .desktop-and-tablet {
+            display: block;
+        }
+
+        &__links {
+            padding: pxToRem(40) 0;
+        }
+
+        &__columns {
+            width: 25%;
+            padding-right: 1rem;
+
+            li {
+                text-align: left;
+            }
+        }
+
+        &__site-info {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: pxToRem(15) 0;
+
+            li {
+                margin-right: pxToRem(32);
+            }
+        }
+
+        .subscribe {
+            margin: 0;
+        }
+    }
+}
+
+
+/*
+ * Desktop layout
+ */
+
+@media screen and (min-width: $desktop) {
+    .footer {}
+}

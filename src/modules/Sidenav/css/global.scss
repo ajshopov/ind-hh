@@ -1,0 +1,144 @@
+/*
+ * Mobile layout
+ */
+
+.smp-subnav {
+    background-color: $off-white-two;
+
+    h4 {
+        text-transform: uppercase;
+        background-color: $cerulean;
+        color: $white;
+        font-size: pxToRem(20);
+        margin: 0;
+        padding: pxToRem(16) pxToRem(14);
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        width: 100%;
+        display: block;
+    }
+
+    &__title {
+        display: flex;
+        justify-content: space-between;
+
+        a {
+            width: 95%;
+        }
+    }
+
+    &__dropdown-wrapper {
+        display: none;
+    }
+
+    .active {
+        display: block;
+        background-color: $off-white;
+
+        .smp-subnav__title {
+            font-weight: bold;
+            color: $cerulean;
+
+            button {
+                @include sq-rotate(180);
+                @include sq-transition(all 0.5s ease);
+            }
+        }
+    }
+
+    button {
+        @include sq-transition(all 0.5s ease);
+        cursor: pointer;
+        border: none;
+        position: relative;
+        width: 1.5rem;
+        height: 1rem;
+        padding: pxToRem(10);
+        background-color: transparent;
+        background-image: url('~src/files/icon-arrow-down-black.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: pxToRem(16) pxToRem(10);
+    }
+
+    ul,
+    li {
+        list-style-image: none;
+        list-style-type: none;
+        list-style-position: outside;
+        overflow: hidden; // ie11 fix for dotpoints still showing
+        padding: 0;
+        margin: 0;
+    }
+
+    // level 2
+    ul>li {
+        font-size: pxToRem(17);
+        padding: pxToRem(16) pxToRem(20);
+        border-top: 1px solid $light-peach;
+
+        button {
+            display: none;
+        }
+
+
+
+        &:first-child {
+            border-top: none;
+        }
+
+        a:hover,
+        a:focus {
+            font-weight: bold;
+        }
+
+        //  level 3
+        ul {
+            padding-top: 1rem;
+
+            li {
+                border: none;
+                font-size: pxToRem(16);
+                margin: 0;
+                padding: 0 0 pxToRem(10) pxToRem(8);
+
+            }
+
+            .active {
+                color: $cerulean;
+                font-weight: bold;
+            }
+        }
+    }
+
+    li.has_children button {
+        display: inline-block;
+}
+}
+
+
+/*
+ * Tablet layout
+ */
+
+@media screen and (min-width: $tablet){
+     .smp-subnav {
+
+    }
+}
+
+
+/*
+ * Desktop layout
+ */
+
+@media screen and (min-width: $desktop){
+     .smp-subnav {
+         h4 {
+             display: none;
+         }
+     }
+}

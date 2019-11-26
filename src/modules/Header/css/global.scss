@@ -1,0 +1,311 @@
+/*
+ * Mobile layout
+ */
+
+
+// skip-links styling
+  .visuallyhidden, .sr-only, form .sq-form-question-tickbox-list input,
+form .sq-form-question-option-list input, .skip-links__link {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.visuallyhidden.focusable:active, .focusable.sr-only:active,
+.visuallyhidden.focusable:focus, .focusable.sr-only:focus, .skip-links__link:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.skip-links__list, .filters__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skip-links {
+    background: rgba(34, 33, 37, 0.9);
+}
+
+.skip-links__link {
+    color: $white;
+}
+// end of skip-links styling
+
+.header {
+    width: 100%;
+    height: pxToRem(60);
+    background-color: rgba(34, 33, 37, 0.9);
+
+    .header__container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 pxToRem(15);
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: pxToRem(16);
+        line-height: 1.44;
+        ul {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .header__logo{
+        width: pxToRem(180);
+    }
+
+    .header__menu{
+        width: 100%;
+        display: none;
+        justify-content: space-between;
+        font-weight: bold;
+        text-transform: uppercase;
+        position: absolute;
+        top: pxToRem(60);
+        left: 0;
+        background-color: rgba(34, 33, 37, 0.9);
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        z-index: 2;
+        a{
+            color: $white;
+        }
+        ul{
+            display: none;
+        }
+        > li {
+            padding-bottom: 1rem;
+        }
+    }
+
+    .show-hamburger{
+        display: block;
+    }
+
+    .header__donate-search{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header__donate-button{
+        width: 110px;
+        background-color: $cerulean;
+        height: 45px;
+        font-weight: bold;
+        &:hover,
+        &:focus{
+            background-color: $mango;
+        }
+    }
+
+    .icon-cross{
+        color: $white;
+        font-size: pxToRem(20);
+    }
+
+    .search-bar-icon,
+    .hamburger-menu-icon {
+        background: none;
+        border: none;
+
+        &:hover, &:focus {
+            transform: scale(1.1);
+        }
+    }
+
+    .hamburger-menu-icon{
+        margin-left: pxToRem(16);
+    }
+
+    .icon-hamburger-btn{
+        color: $white;
+        font-size: pxToRem(20);
+        margin-left: pxToRem(6);
+    }
+
+    .icon-search{
+        color: $white;
+        font-size: pxToRem(22);
+    }
+
+    .search-bar-icon{
+        padding: 1.5rem 1rem;
+    }
+
+    .search-bar-icon.icon-cross{
+        background-color: $cerulean;
+    }
+
+
+    .search-bar{
+        display: none;
+        position: absolute;
+        background-color: $cerulean;
+        top: pxToRem(60);
+        left: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    form{
+        padding: 0.5rem;
+        height: pxToRem(60);
+        display: flex;
+
+        label {
+            display: none;
+        }
+
+        input{
+            padding-left: 0.5rem;
+            height: 100%;
+            flex-grow: 1;
+        }
+        button {
+            width: pxToRem(75);
+            border: 2px solid $white;
+            padding: pxToRem(8) 0;
+            margin-left: pxToRem(10);
+            background-color: transparent;
+            &:hover,
+            &:focus{
+                background-color: $white;
+                color: $cerulean;
+            }
+        }
+    }
+
+    .show-search{
+        display: block;
+    }
+
+}
+
+
+/*
+ * Tablet layout
+ */
+
+@media screen and (min-width: $tablet){
+    .header {
+
+    }
+}
+
+
+/*
+ * Desktop layout
+ */
+
+ @media screen and (min-width: $desktop) {
+    .header {
+        height: pxToRem(65);
+
+        .header__menu{
+            display: flex;
+            width: pxToRem(574);
+            position: relative;
+            top: 0;
+            background-color: inherit;
+            text-align: left;
+            > li{
+                position: relative;
+                padding-bottom: 0;
+                a:hover,
+                a:focus {
+                    border-bottom: 2px solid $white;
+                }
+            }
+            li ul{
+                visibility: hidden;
+                position: absolute;
+                left: -1rem;
+                top: 1.6rem;
+                background-color: $white;
+                box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, .2);
+                display: none;
+                padding: 1rem;
+                @include sq-border-radius(pxToRem(5));
+                width: max-content;
+                li{
+                    padding-bottom: 1rem;
+                    &:last-child{
+                        padding-bottom: 0;
+                    }
+                }
+            }
+            // hover should always have focus too.... to be updated
+            li:hover > ul,
+            li:focus > ul,
+            li ul:hover,
+            li ul:focus{
+                visibility: visible;
+                display: block;
+            }
+            li ul li a{
+                color: $dark-grey;
+                text-transform: none;
+                font-weight: normal;
+                &:hover,
+                &:focus{
+                    color: $cerulean;
+                }
+            }
+        }
+
+        .header__logo {
+            width: pxToRem(200);
+        }
+
+        .header__menu a {
+            color: $white;
+        }
+
+        .header__dropdown-menu{
+            display: none;
+        }
+
+        .header__donate-search{
+            width: 172px;
+        }
+
+        .header__donate-button{
+            display: block;
+        }
+
+        .icon-hamburger-btn{
+            display: none;
+        }
+
+        .search-bar{
+            top: pxToRem(65);
+            form{
+                justify-content: center;
+            }
+            input{
+                flex-grow: 0;
+                width: pxToRem(500);
+            }
+            button{
+                width: pxToRem(110);
+            }
+        }
+    }
+}
