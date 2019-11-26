@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "serve": "webpack-dev-server --open --config webpack.dev.js",
-    "add-module": "bash scripts/add_module.sh"
+    "add-module": "bash scripts/add_module.sh",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -45,6 +46,7 @@
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
     "flexboxgrid": "^6.3.1",
+    "gh-pages": "^2.1.1",
     "webpack-merge": "^4.1.4"
   }
 }
